@@ -1,0 +1,104 @@
+"use client";
+
+import { useState } from "react";
+
+import ProgressBar from "@/components/symptom/ProgressBar";
+import StepLocation from "@/components/symptom/StepLocation";
+import StepSeverity from "@/components/symptom/StepSeverity";
+import StepDuration from "@/components/symptom/StepDuration";
+
+export default function SymptomChecker() {
+  const symptomSteps = [
+    {
+      id: 1,
+      key: "location",
+      title: "Where are you experiencing pain?",
+      type: "options-with-image",
+      options: [
+        { label: "Neck", value: "neck", image: "/neck-pain.png" },
+        { label: "Chest", value: "chest", image: "/body/chest.png" },
+        { label: "Back Bone", value: "backbone", image: "/body/backbone.png" },
+        { label: "Back", value: "back", image: "/body/back.png" },
+        { label: "Hip", value: "hip", image: "/body/hip.png" },
+        { label: "Leg", value: "leg", image: "/body/leg.png" },
+        { label: "Spine", value: "spine", image: "/body/spine.png" },
+        { label: "Shoulder", value: "shoulder", image: "/body/shoulder.png" },
+        { label: "Thighs", value: "thighs", image: "/body/thighs.png" },
+        { label: "Other", value: "other", image: "/body/other.png" },
+      ],
+    },
+    {
+      id: 2,
+      key: "severity",
+      title: "How severe is your pain?",
+      type: "slider",
+      min: 1,
+      max: 10,
+      labels: {
+        1: "Minimal",
+        5: "Moderate",
+        10: "Severe",
+      },
+    },
+    {
+      id: 3,
+      key: "duration",
+      title: "How long have you had this pain?",
+      type: "options",
+      options: [
+        { label: "Less than a week", value: "lt_week" },
+        { label: "1–4 weeks", value: "1_4_weeks" },
+        { label: "1–3 months", value: "1_3_months" },
+        { label: "More than 3 months", value: "gt_3_months" },
+      ],
+    },
+  ];
+
+  const [currentStep, setCurrentStep] = useState(0);
+  const [formData, setFormData] = useState({});
+
+  const step = symptomSteps[currentStep];
+
+  const handleNext = (key, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+
+    setCurrentStep((prev) =>
+      Math.min(prev + 1, symptomSteps.length - 1)
+    );
+  };
+
+  return (
+    <section className="max-w-[64rem] mx-auto px-[1rem] py-[3rem]">
+      <h1 className="text-[2.30rem] font-bold text-center text-[#014579]">
+        Not Sure What you Need?
+      </h1>
+
+      <p className="text-center text-[1.25rem] text-[#757575] mt-[1rem] mb-[2.5rem]">
+        Try our symptom checker to find the right treatment path
+      </p>
+
+    <div className="ms-[20%]">
+
+      <ProgressBar steps={symptomSteps} currentStep={currentStep} />
+    </div>
+
+      <div className="mt-[2.5rem] bg-white rounded-[1rem] p-[2rem] border border-solid border-[#E0E0E0]
+">
+        {step.type === "options-with-image" && (
+          <StepLocation step={step} onNext={handleNext} />
+        )}
+
+        {step.type === "slider" && (
+          <StepSeverity step={step} onNext={handleNext} />
+        )}
+
+        {step.type === "options" && (
+          <StepDuration step={step} onNext={handleNext} />
+        )}
+      </div>
+    </section>
+  );
+}
