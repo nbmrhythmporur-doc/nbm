@@ -6,6 +6,10 @@
     font-weight: 700;
   }
 }
+:root {
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --hero-gradient: linear-gradient(135deg, #014579 0%, #1e3a8a 50%, #1e40af 100%);
+}
 /* 1440-based container */
 .container-1440 {
   width: 100%;

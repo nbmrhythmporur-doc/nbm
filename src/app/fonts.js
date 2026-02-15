@@ -1,18 +1,9 @@
 import localFont from "next/font/local";
 
-export const primaryFont = localFont({
-  src: [
-    {
-      path: "../../public/fonts/AlbraGroteskTRIAL-Regular.otf",    
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/AlbraGroteskTRIAL-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-primary",
+export const albraBold = localFont({
+  src: "./fonts/AlbraGroteskTRIAL-Bold.otf",
+  weight: "700",
+  style: "normal",
   display: "swap",
+  variable: "--font-albra-bold",
 });
