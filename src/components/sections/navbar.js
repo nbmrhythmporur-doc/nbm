@@ -4,11 +4,27 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLandingPage } from "@/context/LandingPageContext";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { isLandingPage } = useLandingPage();
-  const [active, setActive] = useState("Home");
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
+  const pathname = usePathname();
+  const isActive = (item) => {
+    if (item.name === "Home") return pathname === "/";
+
+    if (item.name === "Our Service") return pathname.startsWith("/ourservice");
+
+    if (item.name === "About") return pathname.startsWith("/about");
+
+    if (item.name === "Careers") return pathname.startsWith("/careers");
+
+    if (item.name === "Blog") return pathname.startsWith("/blog");
+
+    return false;
+  };
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -17,11 +33,11 @@ export default function Navbar() {
       href: "",
       dropdown: [
         { label: "Accessible physiotherapy", href: "/services/physiotherapy" },
-        { label: "Recovery roadmap", href: "/services/rehabilitation" },
-        { label: "Therapies offered", href: "/services/wellness" },
-        { label: "Services offered", href: "/services/wellness" },
-        { label: "Find by symptom", href: "/services/wellness" },
-        { label: "Find by speciality ", href: "/services/wellness" },
+        { label: "Recovery roadmap", href: "/ourservice/Recovery-road-map" },
+        { label: "Services offered", href: "/ourservice/serviceoffered" },
+        { label: "Therapies offered", href: "/ourservice/therapies" },
+        { label: "Find by symptom", href: "/ourservice/Find-by-Symptom" },
+        { label: "Find by conditions ", href: "/ourservice/Find-by-Condition" },
         { label: "Symptom checker", href: "/services/wellness" },
       ],
     },
@@ -29,9 +45,9 @@ export default function Navbar() {
       name: "About",
       href: "",
       dropdown: [
-        { label: "Our journey ", href: "/about" },
-        { label: "Our core values", href: "/about/team" },
-        { label: "Meet our team ", href: "/about/team" },
+        { label: "Our journey ", href: "/aboutUs" },
+        { label: "patients review ", href: "/aboutUs/patient-reviews" },
+        { label: "Our core values", href: "/aboutUs/team" },
       ],
     },
     {
@@ -55,7 +71,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <nav
           className={`fixed ${isLandingPage ? "top-[4.5vh]" : "top-0"} left-0 w-full z-50`}
         >
@@ -120,6 +136,16 @@ transition-all duration-200 ease-in-out  ${
       hover:rounded-t-xl
       hover:border-t-2 hover:border-l-2 hover:border-r-2
       hover:border-[#229D2E]
+       after:absolute
+  after:bottom-[6px]
+  after:left-1/2
+  after:-translate-x-1/2
+  after:h-[2px]
+  after:bg-[#ffffff]
+  after:transition-all
+  after:duration-300
+  after:content-['']
+  ${isActive(item) ? "after:w-[60%]" : "after:w-0"}
     `
                           }
 
@@ -139,7 +165,7 @@ transition-all duration-200 ease-in-out  ${
                       ) : (
                         <Link
                           href={item.href}
-                          onClick={() => setActive(item.name)}
+                         
                           className={`
   flex items-center justify-center 
   h-[clamp(36px,3.9vh,44px)]
@@ -148,6 +174,16 @@ transition-all duration-200 ease-in-out  ${
   hover:cursor-pointer
   transition-colors duration-200
   hover:bg-white hover:text-black hover:rounded hover:border-[#229D2E] hover:border-[2px]
+   after:absolute
+  after:bottom-[6px]
+  after:left-1/2
+  after:-translate-x-1/2
+  after:h-[2px]
+  after:bg-[#ffffff]
+  after:transition-all
+  after:duration-300
+  after:content-['']
+  ${isActive(item) ? "after:w-[60%]" : "after:w-0"}
   
 `}
                         >
@@ -203,7 +239,13 @@ transition-all duration-200 ease-in-out  ${
                   isLandingPage ? "" : "bg-hero-gradient"
                 }`}
               >
-                <button className="flex flex-row justify-center items-center border border-[#FFFFFF80] rounded-xl text-[#FFFFFF] text-[clamp(11px,0.83vw,14px)] font-semibold w-[clamp(150px,13.9vw,240px)] h-[clamp(30px,5.5vh,44px)] bg-[#229D2E]">
+                <a
+                  href="https://wa.me/919600104848?text=Hi%20I%20would%20like%20to%20book%20an%20appointment"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Book appointment on WhatsApp"
+                  className="flex flex-row justify-center items-center border border-[#FFFFFF80] rounded-xl text-[#FFFFFF] text-[clamp(11px,0.83vw,14px)] font-semibold w-[clamp(150px,13.9vw,240px)] h-[clamp(30px,5.5vh,44px)] bg-[#229D2E]"
+                >
                   <span>
                     <Image
                       src="/arrow-slim-right-white.svg"
@@ -213,7 +255,7 @@ transition-all duration-200 ease-in-out  ${
                     />
                   </span>
                   <span>Book Appointment</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -221,18 +263,144 @@ transition-all duration-200 ease-in-out  ${
       </div>
 
       {/* MOBILE */}
-      <nav className="block md:hidden bg-hero-gradient">
-        <div className="flex pt-[1.2rem] md:hidden">
+      <nav className="lg:hidden bg-hero-gradient fixed w-full z-50">
+        {/* Top Bar */}
+        <div className="flex items-center justify-between px-5 pt-5 pb-4">
           <Link href="/">
             <Image
               src="/logo.png"
               alt="NBM Rhythm"
-              width={200}
+              width={160}
               height={40}
               priority
+              className="h-auto w-[140px]"
             />
           </Link>
+
+          {/* Hamburger / Close */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-white"
+          >
+            {mobileOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* Dropdown Panel */}
+        {mobileOpen && (
+          <div className="px-4 pb-6">
+            <div className="bg-[#EDEDED] rounded-xl py-6 px-6 shadow-lg">
+              <ul className="space-y-5 text-[16px] font-medium text-[#333]">
+                {menuItems.map((item, index) => {
+                  const hasDropdown = item.dropdown && item.dropdown.length > 0;
+
+                  return (
+                    <li key={item.name}>
+                      {/* ===== NORMAL LINK ===== */}
+                      {!hasDropdown && (
+                        <Link
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block"
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+
+                      {/* ===== DROPDOWN ITEM ===== */}
+                      {hasDropdown && (
+                        <>
+                          <button
+                            onClick={() =>
+                              setOpenMobileDropdown(
+                                openMobileDropdown === index ? null : index,
+                              )
+                            }
+                            className="w-full flex items-center justify-between"
+                          >
+                            {item.name}
+
+                            <svg
+                              className={`w-4 h-4 transition-transform duration-300 ${
+                                openMobileDropdown === index ? "rotate-180" : ""
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+
+                          {/* Submenu */}
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ${
+                              openMobileDropdown === index
+                                ? "max-h-[500px] mt-4"
+                                : "max-h-0"
+                            }`}
+                          >
+                            <ul className="space-y-3 pl-4 text-[14px] text-[#555]">
+                              {item.dropdown.map((subItem) => (
+                                <li key={subItem.label}>
+                                  <Link
+                                    href={subItem.href}
+                                    onClick={() => {
+                                      setMobileOpen(false);
+                                      setOpenMobileDropdown(null);
+                                    }}
+                                    className="block"
+                                  >
+                                    {subItem.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );

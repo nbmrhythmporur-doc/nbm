@@ -12,13 +12,13 @@ export default function Home() {
     <div>
       <Landing />
       <LandingClinic />
-      <Threesteps/>
-      <FindbySymptom />
-      <FindbyCondition />
+      {/* <Threesteps/> */}
+      {/* <FindbySymptom /> */}
+      {/* <FindbyCondition /> */}
       <SymptomChecker/>
       <Faq/>
       <Locations/>
-      <OurLocation/>
+      {/* <OurLocation/> */}
     </div> 
   );
 }

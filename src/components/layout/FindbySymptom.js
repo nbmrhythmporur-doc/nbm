@@ -3,6 +3,7 @@
 import { useState } from "react";
 import SymptomCard from "../ui/Symptomcard";
 import TreatmentPlanModal from "../ui/TreatmentPlanModal";
+import { Mousewheel } from "swiper/modules";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,123 +16,124 @@ export default function FindbySymptom() {
     {
       id: 1,
       icon: "/info-orange-circle.svg",
-      title: "neck pain",
+      title: "Neck Pain",
       subtitle: "explore treatment",
       modal: {
         title: "Neck Pain Treatment Plan",
-        subtitle: "Specialized approach for neck pain and management",
+        subtitle: "Targeted therapy for cervical strain & posture issues",
         steps: [
-          "Physical therapy exercises focusing on neck mobility",
-          "Manual therapy and massage techniques",
-          "Postural correction and ergonomic adjustments",
-          "Strengthening exercises for neck and shoulder muscles",
-          "Stress management and relaxation techniques",
+          "Cervical mobility and stretching exercises",
+          "Manual therapy for muscle tightness",
+          "Postural correction training",
+          "Isometric neck strengthening",
+          "Ergonomic workstation guidance",
         ],
         nextStep:
-          "The treatment plans provided serve as general guidelines based on the conditions selected and may not address specific individual requirements. For optimal safety and efficacy, we strongly recommend a comprehensive assessment with our certified healthcare professional.",
+          "This plan serves as a general guideline. For accurate diagnosis and personalized care, consult our certified physiotherapist.",
       },
     },
     {
       id: 2,
       icon: "/Lightning.svg",
-      title: "leg pain",
+      title: "Lower Back Pain",
       subtitle: "explore treatment",
       modal: {
-        title: "Neck Pain Treatment Plan",
-        subtitle: "Specialized approach for neck pain and management",
+        title: "Lower Back Pain Treatment Plan",
+        subtitle: "Focused rehabilitation for lumbar discomfort",
         steps: [
-          "Physical therapy exercises focusing on neck mobility",
-          "Manual therapy and massage techniques",
-          "Postural correction and ergonomic adjustments",
-          "Strengthening exercises for neck and shoulder muscles",
-          "Stress management and relaxation techniques",
+          "Core stabilization exercises",
+          "Lumbar spine mobilization",
+          "Hamstring & hip flexor stretching",
+          "Posture re-education",
+          "Heat therapy for muscle relaxation",
         ],
         nextStep:
-          "The treatment plans provided serve as general guidelines based on the conditions selected and may not address specific individual requirements. For optimal safety and efficacy, we strongly recommend a comprehensive assessment with our certified healthcare professional.",
+          "Back pain varies in cause and severity. A detailed assessment ensures safe and effective recovery.",
       },
     },
     {
       id: 3,
       icon: "/heartBeat.svg",
-      title: "neck pain",
+      title: "Shoulder Pain",
       subtitle: "explore treatment",
       modal: {
-        title: "Neck Pain Treatment Plan",
-        subtitle: "Specialized approach for neck pain and management",
+        title: "Shoulder Rehabilitation Plan",
+        subtitle: "Recovery plan for rotator cuff & impingement issues",
         steps: [
-          "Physical therapy exercises focusing on neck mobility",
-          "Manual therapy and massage techniques",
-          "Postural correction and ergonomic adjustments",
-          "Strengthening exercises for neck and shoulder muscles",
-          "Stress management and relaxation techniques",
+          "Rotator cuff strengthening",
+          "Scapular stabilization exercises",
+          "Range-of-motion therapy",
+          "Manual release techniques",
+          "Resistance band strengthening",
         ],
         nextStep:
-          "The treatment plans provided serve as general guidelines based on the conditions selected and may not address specific individual requirements. For optimal safety and efficacy, we strongly recommend a comprehensive assessment with our certified healthcare professional.",
+          "Shoulder conditions require tailored exercise progression. Book a session for guided therapy.",
       },
     },
     {
       id: 4,
       icon: "/heartBeat.svg",
-      title: "neck pain",
+      title: "Knee Pain",
       subtitle: "explore treatment",
       modal: {
-        title: "Neck Pain Treatment Plan",
-        subtitle: "Specialized approach for neck pain and management",
+        title: "Knee Pain Treatment Plan",
+        subtitle: "Strength-based recovery for knee joint stability",
         steps: [
-          "Physical therapy exercises focusing on neck mobility",
-          "Manual therapy and massage techniques",
-          "Postural correction and ergonomic adjustments",
-          "Strengthening exercises for neck and shoulder muscles",
-          "Stress management and relaxation techniques",
+          "Quadriceps and hamstring strengthening",
+          "Patellar mobilization",
+          "Balance and proprioception training",
+          "Low-impact functional exercises",
+          "Activity modification guidance",
         ],
         nextStep:
-          "The treatment plans provided serve as general guidelines based on the conditions selected and may not address specific individual requirements. For optimal safety and efficacy, we strongly recommend a comprehensive assessment with our certified healthcare professional.",
+          "Knee pain recovery depends on alignment and strength balance. Professional supervision is recommended.",
       },
     },
     {
       id: 5,
       icon: "/heartBeat.svg",
-      title: "neck pain",
+      title: "Ankle Sprain",
       subtitle: "explore treatment",
       modal: {
-        title: "Neck Pain Treatment Plan",
-        subtitle: "Specialized approach for neck pain and management",
+        title: "Ankle Sprain Rehabilitation Plan",
+        subtitle: "Structured healing for ligament recovery",
         steps: [
-          "Physical therapy exercises focusing on neck mobility",
-          "Manual therapy and massage techniques",
-          "Postural correction and ergonomic adjustments",
-          "Strengthening exercises for neck and shoulder muscles",
-          "Stress management and relaxation techniques",
+          "Controlled ankle mobility exercises",
+          "Proprioception & balance drills",
+          "Resistance band strengthening",
+          "Swelling control techniques",
+          "Gradual return-to-sport progression",
         ],
         nextStep:
-          "The treatment plans provided serve as general guidelines based on the conditions selected and may not address specific individual requirements. For optimal safety and efficacy, we strongly recommend a comprehensive assessment with our certified healthcare professional.",
+          "Improper rehab can lead to recurring sprains. Get a personalized plan for complete recovery.",
       },
     },
     {
       id: 6,
       icon: "/heartBeat.svg",
-      title: "neck pain",
+      title: "Sciatica",
       subtitle: "explore treatment",
       modal: {
-        title: "Neck Pain Treatment Plan",
-        subtitle: "Specialized approach for neck pain and management",
+        title: "Sciatica Pain Management Plan",
+        subtitle: "Relief plan for nerve compression symptoms",
         steps: [
-          "Physical therapy exercises focusing on neck mobility",
-          "Manual therapy and massage techniques",
-          "Postural correction and ergonomic adjustments",
-          "Strengthening exercises for neck and shoulder muscles",
-          "Stress management and relaxation techniques",
+          "Nerve gliding exercises",
+          "Piriformis stretching",
+          "Core strengthening",
+          "Postural correction training",
+          "Spinal decompression techniques",
         ],
         nextStep:
-          "The treatment plans provided serve as general guidelines based on the conditions selected and may not address specific individual requirements. For optimal safety and efficacy, we strongly recommend a comprehensive assessment with our certified healthcare professional.",
+          "Sciatica symptoms differ based on nerve involvement. Consult our specialist for safe treatment progression.",
       },
     },
   ];
+
   return (
     <section className="bg-[#F5F7FA]">
       {/* HERO */}
       <div className="bg-hero-gradient py-[8%] flex flex-col items-center justify-center">
-        <h1 className="text-[2rem] md:text-[3rem] text-white font-bold mb-2">
+        <h1 className="text-[2rem] md:text-[3rem] text-white text-center font-bold mb-2">
           Start Your Healing Journey
         </h1>
         <p className="text-[1.125rem] text-white text-center max-w-[720px]">
@@ -155,10 +157,7 @@ export default function FindbySymptom() {
         <div className="md:hidden px-4 mt-8 pb-20">
           <div className="grid grid-cols-2 gap-4">
             {cards.map((card) => (
-              <div
-                key={card.id}
-                onClick={() => setActiveModal(card.modal)}
-              >
+              <div key={card.id} onClick={() => setActiveModal(card.modal)}>
                 <SymptomCard {...card} />
               </div>
             ))}
@@ -168,16 +167,15 @@ export default function FindbySymptom() {
         {/* ---------------- DESKTOP CAROUSEL ---------------- */}
         <div className="hidden md:block mt-10 pb-[10rem]">
           <Swiper
+            modules={[Mousewheel]}
             spaceBetween={24}
             slidesPerView="auto"
             grabCursor
+            mousewheel={{ forceToAxis: true }}
             className="!px-8 lg:!px-[7.5rem] py-10 !pr-32"
           >
             {cards.map((card) => (
-              <SwiperSlide
-                key={card.id}
-                className="!w-[280px] lg:!w-[320px]"
-              >
+              <SwiperSlide key={card.id} className="!w-[280px] lg:!w-[320px]">
                 <div onClick={() => setActiveModal(card.modal)}>
                   <SymptomCard {...card} />
                 </div>

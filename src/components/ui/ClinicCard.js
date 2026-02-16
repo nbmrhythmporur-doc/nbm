@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useState } from "react";
 
@@ -16,21 +15,25 @@ export function ClinicCard({
 
   return (
     <div
-      className="
-        w-full max-w-[380px]
-        rounded-[16px]
-        bg-white
-        flex flex-col
-        shadow-[0px_1.1px_4.4px_rgba(0,0,0,0.25)]
-        transition-all duration-300
-        ease-out
-        hover:shadow-[0px_0px_24px_0px_#8AAAC1]
-        hover:-translate-y-1
-        me-5
-      "
+      className={`
+    w-[clamp(300px,26vw,378px)]
+    ${
+      expanded
+        ? "min-h-[clamp(720px,52vw,754px)]"
+        : "min-h-[clamp(660px,48vw,692px)]"
+    }
+    rounded-[16px]
+    bg-white
+    flex flex-col
+    shadow-[0px_1.1px_4.4px_rgba(0,0,0,0.25)]
+    transition-all duration-300 ease-out
+    hover:shadow-[0px_0px_24px_0px_#8AAAC1]
+    hover:-translate-y-1
+    me-5
+  `}
     >
       {/* IMAGE */}
-      <div className="relative w-full aspect-[16/10] rounded-t-[16px] overflow-hidden bg-[#014579]">
+      <div className="relative w-full h-[236px] rounded-t-[16px] overflow-hidden bg-[#014579]">
         <Image
           src={image}
           alt={titleOverlay}
@@ -38,17 +41,15 @@ export function ClinicCard({
           className="object-cover mt-1"
         />
 
-        {/* Overlay */}
         <div className="absolute inset-0 mt-1 bg-[#201D1D87]" />
 
-        {/* Title */}
         <div className="absolute bottom-4 left-4 right-4 text-[24px] font-extrabold text-white">
           {titleOverlay}
         </div>
       </div>
 
       {/* CONTENT */}
-      <div className="flex flex-col ps-[28px] py-6 flex-1">
+      <div className="flex flex-col ps-[28px] py-6 flex-1 overflow-hidden">
         <h2 className="text-[22px] mb-4 font-bold text-[#014579]">{title}</h2>
 
         <p className="text-[16px] text-[#424242] pe-6 leading-[24px] mb-6">
@@ -75,7 +76,6 @@ export function ClinicCard({
           ))}
         </ul>
 
-        {/* READ MORE / LESS */}
         {services.length > 4 && (
           <button
             onClick={() => setExpanded((p) => !p)}

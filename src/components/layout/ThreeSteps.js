@@ -22,7 +22,7 @@ const steps = [
   {
     id: 3,
     title: "3. Treatment",
-    icon: "treatment.svg",
+    icon: "/treatment.svg",
     description:
       "Personalized treatment plans designed for faster and safer recovery.",
     position: "right",

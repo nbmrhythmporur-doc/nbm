@@ -13,44 +13,44 @@ const quickFilters = [
 
 const services = [
   {
-    slug: "back-spine-rehabilitation",
-    title: "Back & Spine Rehabilitation",
-    goal: "Regain full functionality",
+    slug: "Musculoskeletal-Physiotherapy",
+    title: "Musculoskeletal Physiotherapy",
+    goal: "Improve strength & mobility",
     category: "Pain Relief",
     tags: ["back pain", "spine injury", "posture"],
     image: "/ourservicehero.png",
     description:
-      "Personalized rehabilitation programs to reduce back pain, improve posture, and restore spinal mobility.",
+      "Musculoskeletal physiotherapy focuses on treating pain and movement problems involving muscles, joints, ligaments, and bones. It helps restore mobility, reduce discomfort, and improve overall physical function.",
   },
   {
-    slug: "sports-injury-recovery",
-    title: "Sports Injury Recovery",
-    goal: "Return to peak performance",
-    category: "Strength",
-    tags: ["sports injury", "muscle tear", "rehab"],
+    slug: "Workplace-Ergonomics",
+    title: "Workplace Ergonomics",
+    goal: "prevent injuries & improve comfort",
+    category: "posture",
+    tags: ["Ergonomics", "muscle tear", "Workplace"],
     image: "/ourservicehero.png",
     description:
-      "Targeted physiotherapy to help athletes recover faster, prevent re-injury, and improve performance.",
+      "Workplace ergonomics focuses on evaluating work setups and training individuals to maintain proper posture and movement. It helps reduce work-related pain, prevent injuries, and improve comfort and productivity.",
   },
   {
-    slug: "manual-therapy",
-    title: "Manual Therapy",
-    goal: "Improve joint movement",
+    slug: "Vestibular-Rehabilitation-(VR)",
+    title: "Vestibular Rehabilitation (VR)",
+    goal: "Restore vestibular function",
     category: "Mobility",
     tags: ["manual therapy", "joint pain", "stiffness"],
     image: "/ourservicehero.png",
     description:
-      "Hands-on treatment techniques to relieve pain, reduce stiffness, and improve joint flexibility.",
+      "Vestibular rehabilitation focuses on treating dizziness, vertigo, and balance disorders through targeted exercises. It helps improve stability, coordination, and confidence in daily movement.",
   },
   {
-    slug: "neck-shoulder-pain-care",
-    title: "Neck & Shoulder Pain Care",
-    goal: "Reduce stiffness and pain",
+    slug: "Womens-Health-Physiotherapy",
+    title: "Women’s Health Physiotherapy",
+    goal: "Core and pelvic strength",
     category: "Pain Relief",
-    tags: ["neck pain", "shoulder pain", "work posture"],
+    tags: ["strength", "Core", "work posture"],
     image: "/ourservicehero.png",
     description:
-      "Specialized care for neck and shoulder pain caused by poor posture, stress, or overuse.",
+      "Women’s health physiotherapy addresses conditions related to pregnancy, postnatal recovery, pelvic floor dysfunction, and hormonal changes. It helps improve strength, reduce pain, and enhance overall well-being.",
   },
   {
     slug: "post-surgery-rehabilitation",
@@ -63,64 +63,64 @@ const services = [
       "Structured rehab programs designed to restore strength, movement, and confidence after surgery.",
   },
   {
-    slug: "neurological-rehabilitation",
-    title: "Neurological Rehabilitation",
-    goal: "Improve motor control",
+    slug: "Pediatric-Physiotherapy",
+    title: "Pediatric Physiotherapy",
+    goal: "Functional movement development",
     category: "Neuro Care",
     tags: ["stroke rehab", "neurological", "balance"],
     image: "/ourservicehero.png",
     description:
-      "Therapy focused on improving coordination, balance, and movement after neurological conditions.",
+      "Pediatric physiotherapy focuses on improving movement, strength, and coordination in infants and children. It supports healthy physical development and helps children achieve age-appropriate milestones.",
   },
   {
-    slug: "arthritis-management",
-    title: "Arthritis Management",
-    goal: "Enhance joint comfort",
-    category: "Joint Care",
-    tags: ["arthritis", "joint pain", "inflammation"],
+    slug: "Neuro-Physiotherapy",
+    title: "Neuro Physiotherapy",
+    goal: "Restored movement control",
+    category: "Neuro",
+    tags: ["Restored", "Neuro", "control"],
     image: "/ourservicehero.png",
     description:
-      "Pain-relieving exercises and therapies to manage arthritis and improve daily function.",
+      "Neuro physiotherapy focuses on improving movement, balance, and coordination in patients with neurological conditions. It helps retrain the nervous system to restore function and independence.",
   },
   {
-    slug: "pediatric-physiotherapy",
-    title: "Pediatric Physiotherapy",
-    goal: "Support healthy growth",
-    category: "Pediatric Care",
-    tags: ["children", "development", "mobility"],
+    slug: "Functional-Training",
+    title: "Functional Training",
+    goal: "Improve functional fitness",
+    category: "Training",
+    tags: ["Training", "development", "mobility"],
     image: "/ourservicehero.png",
     description:
-      "Specialized physiotherapy for children to improve movement, balance, and physical development.",
+      "Functional training focuses on exercises that improve strength, balance, and coordination for everyday movements. It helps enhance mobility, prevent injuries, and support efficient, pain-free daily activities.",
   },
   {
-    slug: "geriatric-physiotherapy",
-    title: "Geriatric Physiotherapy",
-    goal: "Maintain independence",
-    category: "Elder Care",
-    tags: ["elder care", "balance", "fall prevention"],
+    slug: "Spine-Rehabilitation",
+    title: "Spine Rehabilitation",
+    goal: "Improve strength & mobility",
+    category: "Spine",
+    tags: ["elder care", "Spine", "Rehabilitation"],
     image: "/ourservicehero.png",
     description:
-      "Focused care to improve strength, balance, and mobility in older adults.",
+      "Spine rehabilitation focuses on relieving pain, restoring mobility & strengthening spinal muscles. It combines targeted exercises to improve posture, function,  long-term spine health.",
   },
   {
-    slug: "postural-correction",
-    title: "Postural Correction Therapy",
-    goal: "Improve body alignment",
-    category: "Posture",
-    tags: ["posture", "desk job", "spine care"],
+    slug: "Sports-Physiotherapy",
+    title: "Sports Physiotherapy",
+    goal: "Prevent & treat injuries",
+    category: "Sports",
+    tags: ["Sports", "desk job", "injuries"],
     image: "/ourservicehero.png",
     description:
-      "Correct poor posture habits and reduce strain through guided exercises and education.",
+      "Sports physiotherapy focuses on preventing, treating, and rehabilitating sports-related injuries. It helps athletes recover faster, improve performance, and safely return to activity.",
   },
   {
-    slug: "chronic-pain-management",
-    title: "Chronic Pain Management",
-    goal: "Reduce long-term pain",
+    slug: "Post-Surgical-Rehabilitation",
+    title: "Post-Surgical Rehabilitation",
+    goal: "Fast post- surgical recovery",
     category: "Pain Management",
-    tags: ["chronic pain", "long term care", "relief"],
+    tags: ["Post", "Surgical", "Rehabilitation"],
     image: "/ourservicehero.png",
     description:
-      "Personalized strategies to manage long-standing pain and improve quality of life.",
+      "Post-surgical rehabilitation helps restore strength, mobility, and function after surgery. It supports safe healing, reduces pain and stiffness, and speeds up return to daily activities.",
   },
   {
     slug: "balance-gait-training",
@@ -133,24 +133,24 @@ const services = [
       "Programs designed to improve balance, coordination, and walking confidence.",
   },
   {
-    slug: "workplace-ergonomics",
-    title: "Workplace Ergonomic Care",
-    goal: "Prevent work-related pain",
+    slug: "Geriatric-Physiotherapy",
+    title: "Geriatric Physiotherapy",
+    goal: "Improve quality of movements",
     category: "Wellness",
-    tags: ["ergonomics", "office pain", "work health"],
+    tags: ["Geriatric", "office pain", "work health"],
     image: "/ourservicehero.png",
     description:
-      "Ergonomic assessments and therapy to prevent pain caused by desk-based work.",
+      "Geriatric physiotherapy focuses on improving mobility, balance, and strength in older adults. It helps reduce pain, prevent falls, and maintain independence in daily activities.",
   },
   {
-    slug: "cardio-pulmonary-rehab",
-    title: "Cardio Pulmonary Rehabilitation",
-    goal: "Improve endurance",
+    slug: "Back-Spine-Rehabilitation",
+    title: "Back & Spine Rehabilitation",
+    goal: " Regain full functionality",
     category: "Cardio Care",
     tags: ["breathing", "cardio rehab", "endurance"],
     image: "/ourservicehero.png",
     description:
-      "Rehabilitation programs to enhance breathing capacity and physical endurance.",
+      "Restore strength and function to your muscles and joints.​ Our targeted exercises relieve pain and improve mobility.​ The goal is to help you return to daily activities with better mobility",
   },
   {
     slug: "women-health-physio",
@@ -307,12 +307,12 @@ export default function ServiceOffered() {
       </div>
 
       {/* WEB – CAROUSEL */}
-      <div className="hidden md:block mt-16 px-6">
+      <div className="hidden md:block mt-16 mx-30">
         <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory">
           {visibleServices.map((service) => (
             <div
               key={service.slug}
-              className="snap-start shrink-0 w-[360px]"
+              className="snap-start shrink-0 "
             >
               <ServiceCard service={service} />
             </div>
