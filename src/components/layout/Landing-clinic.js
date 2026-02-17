@@ -54,6 +54,7 @@ export default function LandingClinic() {
 
   return (
     <section
+      id="accessible-physiotherapy"
       className=" mx-[clamp(16px,8vw,121px)] 
   mt-[clamp(80px,8vh,100px)] 
   mb-[clamp(80px,8vh,100px)]"

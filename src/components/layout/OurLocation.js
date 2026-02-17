@@ -6,55 +6,52 @@ export default function OurLocation() {
     {
       id: 1,
       name: "NBM RHYTHM (PORUR)",
-      address: "456 River Street, Riverside District, State 12346",
-      phone: "+1 (555) 234-5678",
-      hours: "Mon-Fri: 8:00 AM-7:00 PM | Sat: 9:00 AM-3:00 PM",
+      address: "120, 40 Feet Rd, Lakshmi Nagar, Porur, Ch- 600116",
+      phone: "9600104848",
+      hours: "Mon-Sat: 9:30 AM-2:00 PM , 5:00 PM-9:00 PM",
       rating: 4.9,
       reviews: 750,
       image: "/office-location.png", // replace with your image path
+      map:"https://maps.app.goo.gl/6Ceh8Rm5rHgRqVTJ8"
     },
     {
       id: 2,
       name: "NBM RHYTHM (NANGANALLUR)",
-      address: "456 River Street, Riverside District, State 12346",
-      phone: "+1 (555) 234-5678",
-      hours: "Mon-Fri: 8:00 AM-7:00 PM | Sat: 9:00 AM-3:00 PM",
-      rating: 2.9,
+      address: "14, 10th St, Ram Nagar, Nanganallur, Ch- 600061",
+      phone: "95001 24848, 96001 04848",
+      hours: "Mon-Sat: 9:30 AM- 9PM",
+      rating: 4.9,
       reviews: 80,
       image: "/office-location.png", // replace with your image path
+      map:"https://maps.app.goo.gl/samMzXX7h7DdoPe87"
     },
     {
       id: 3,
-      name: "NBM RHYTHM (NANGANALLUR)",
-      address: "456 River Street, Riverside District, State 12346",
-      phone: "+1 (555) 234-5678",
-      hours: "Mon-Fri: 8:00 AM-7:00 PM | Sat: 9:00 AM-3:00 PM",
-      rating: 2.9,
+      name: "NBM RHYTHM (MADIPAKKAM)",
+      address: "831, 7th Cross Street, Ram Nagar South, Madipakkam, Ch- 600091",
+      phone: "96001 09489",
+      hours: "Mon-Sat: 9:30 AM - 9:00 PM",
+      rating: 4.9,
       reviews: 80,
       image: "/office-location.png", // replace with your image path
+      map:"https://maps.app.goo.gl/KBK4VrdY5SWo3taW7"
     },
     {
       id: 4,
-      name: "NBM RHYTHM (NANGANALLUR)",
-      address: "456 River Street, Riverside District, State 12346",
-      phone: "+1 (555) 234-5678",
-      hours: "Mon-Fri: 8:00 AM-7:00 PM | Sat: 9:00 AM-3:00 PM",
-      rating: 2.9,
+      name: "NBM RHYTHM (MANGADU)",
+      address: "No:1, CTA Garden, Mangadu ch-600122",
+      phone: "95001 99144",
+      hours: "Mon-Sat: 5:00 PM - 8:00 PM",
+      rating: 4.9,
       reviews: 80,
       image: "/office-location.png", // replace with your image path
+      map:"https://maps.app.goo.gl/ufBDEM1eCMicFcR97"
     },
     // Add more locations if needed
   ];
   return (
     <section
-      className="mx-[1rem]
-  sm:ms-[2rem]
-  md:ms-[4rem]
-  lg:ms-[6rem]
-  xl:ms-[7.5rem]
-  2k:ms-[9rem]
-  mt-[8rem] md:mt-0
-  "
+      className="ms-[clamp(16px,5vw,120px)] pt-20"
     >
       <div className="flex flex-col items-center justify-center mx-[2.5rem] md:mx-[0%] text-center">
         <div>
@@ -84,15 +81,11 @@ export default function OurLocation() {
    xl:mt-[7rem]          /* 1440px */
    2k:mt-[9rem]"
       >
-        <div className="flex flex-col md:flex-row overflow-x-auto snap-x snap-mandatory"
-         
-        >
+        <div className="flex flex-col md:flex-row overflow-x-auto snap-x snap-mandatory">
           {locations.map((loc) => (
             <div key={loc.id}>
-
-                <LocationCard location={loc} />
+              <LocationCard location={loc} />
             </div>
-      
           ))}
         </div>
       </div>

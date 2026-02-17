@@ -6,35 +6,24 @@ export default function LocationCard({ location }) {
   return (
     <div
       className="
-        w-[24.375rem]       /* 390px default */      /* 416px */
-        md:w-[26rem]        /* 448px */
-        lg:w-[28rem]        /* 480px */
-        xl:w-[24.375rem]        /* 512px */
-        2k:w-[34rem]        /* 544px */
-        
-        h-[30.125rem]       /* 482px default */
-        sm:h-[31rem]        /* 496px */
-        md:h-[32rem]        /* 512px */
-        lg:h-[33rem]        /* 528px */
-        xl:h-[34rem]        /* 544px */
-        2k:h-[35rem]        /* 560px */
-        
-        bg-white
-        rounded-[1rem]      /* 16px */
-        shadow-md
-        overflow-hidden
-        hover:shadow-lg
-        transition-shadow
-        duration-300
-        me-[1rem]
-      "
+    w-[380px]
+    max-w-full
+    aspect-[380/482]
+    bg-white
+    rounded-[1rem]
+    shadow-md
+    overflow-hidden
+    hover:shadow-lg
+    transition-shadow
+    duration-300
+    me-4
+  "
     >
       {/* Image */}
       <div
         className="
-          relative 
-          h-[14rem] sm:h-[15rem] md:h-[16rem] lg:h-[17rem] xl:h-[18rem] 2k:h-[19rem]
-        "
+           
+relative h-[52%]        "
       >
         <Image
           width={390}
@@ -60,8 +49,7 @@ export default function LocationCard({ location }) {
         className="
           p-4
           flex flex-col 
-          h-[16.125rem] sm:h-[16.125rem] md:h-[16.125rem] lg:h-[16.125rem] xl:h-[16.125rem] 2k:h-[16.125rem]
-        "
+flex flex-col h-[48%] p-4        "
       >
         <div className="space-y-2 mb-10">
           <p className="flex items-center text-[#757575] font-bold  text-[12px] mb-[1rem]">
@@ -103,10 +91,7 @@ export default function LocationCard({ location }) {
           <div
             className="flex flex-row items-center justify-center hover:cursor-pointer"
             onClick={() => {
-              window.open(
-                "https://maps.app.goo.gl/XQN2iyUBxCcAq2SC7",
-                "_blank",
-              );
+              window.open(`${location.map}`, "_blank");
             }}
           >
             <span className="m-2">

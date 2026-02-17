@@ -125,3 +125,9 @@
   border: 3px solid #E16E39;
   cursor: pointer;
 }
+h1 {
+  font-family: var(--font-albra-bold);
+}
+html {
+  scroll-behavior: smooth;
+}

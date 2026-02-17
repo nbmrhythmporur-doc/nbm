@@ -51,37 +51,10 @@ function FooterSocials() {
 export default function Footer() {
   const footerLinks = [
     {
-      title: "Services",
-      links: [
-        { label: "In-Clinic Sessions", href: "/" },
-        { label: "Virtual Care", href: "/" },
-        { label: "Sports Injury", href: "/" },
-        { label: "Post-Operative Rehabilitation", href: "/" },
-      ],
-    },
-    {
       title: "Company",
       links: [
-        { label: "About Us", href: "/" },
-        { label: "Careers", href: "/" },
-        { label: "Our Team", href: "/" },
-        { label: "Post-Operative Rehabilitation", href: "/" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { label: "Blog", href: "/" },
-        { label: "FAQs", href: "/" },
-        { label: "Support", href: "/" },
-        { label: "Post-Operative Rehabilitation", href: "/" },
-      ],
-    },
-    {
-      title: "Legal",
-      links: [
-        { label: "Privacy Policy", href: "/" },
-        { label: "Terms of Service", href: "/" },
+        { label: "About Us", href: "/aboutUs/Clinic" },
+        { label: "Our Team", href: "/aboutUs/Clinic" },
       ],
     },
   ];

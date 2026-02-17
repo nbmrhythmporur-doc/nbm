@@ -15,7 +15,7 @@ export default function PatientReviewsPage() {
       id: 1,
       name: "Meenakshi R",
       location: "Chennai",
-      image: "/review1.png",
+      image: "/patient.png",
       review:
         "The team helped me recover faster than expected. The physiotherapists were extremely supportive and professional.",
     },
@@ -23,7 +23,7 @@ export default function PatientReviewsPage() {
       id: 2,
       name: "Raj Verma",
       location: "Vellore",
-      image: "/review2.png",
+      image: "/patient.png",
       review:
         "Finally found relief from chronic back pain. The treatment plan was structured and effective.",
     },
@@ -31,7 +31,7 @@ export default function PatientReviewsPage() {
       id: 3,
       name: "Annie D",
       location: "Bangalore",
-      image: "/review3.png",
+      image: "/patient.png",
       review:
         "Excellent patient care and post-surgery rehabilitation. I feel stronger and more confident.",
     },
@@ -39,7 +39,7 @@ export default function PatientReviewsPage() {
       id: 4,
       name: "Suresh K",
       location: "Coimbatore",
-      image: "/review4.png",
+      image: "/patient.png",
       review:
         "Professional staff and modern therapy methods. My knee pain has reduced significantly.",
     },
@@ -108,13 +108,12 @@ export default function PatientReviewsPage() {
     <section
       className="relative w-full min-h-screen flex flex-col justify-center"
       style={{
-        backgroundImage: "url('/patient-review-backdrop.png')",
+        backgroundImage: "url('/review-backgorund.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
 
       <div className="relative z-10 max-w-[1440px] mx-auto w-full px-6 lg:px-16 py-16">
         {/* Heading */}

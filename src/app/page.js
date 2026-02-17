@@ -15,9 +15,9 @@ export default function Home() {
       {/* <Threesteps/> */}
       {/* <FindbySymptom /> */}
       {/* <FindbyCondition /> */}
-      <SymptomChecker/>
-      <Faq/>
-      <Locations/>
+      {/* <SymptomChecker/> */}
+      {/* <Faq/> */}
+      {/* <Locations/> */}
       {/* <OurLocation/> */}
     </div> 
   );

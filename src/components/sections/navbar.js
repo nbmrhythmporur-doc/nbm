@@ -32,7 +32,7 @@ export default function Navbar() {
       name: "Our Service",
       href: "",
       dropdown: [
-        { label: "Accessible physiotherapy", href: "/services/physiotherapy" },
+        { label: "Accessible physiotherapy",  href: "/#accessible-physiotherapy", },
         { label: "Recovery roadmap", href: "/ourservice/Recovery-road-map" },
         { label: "Services offered", href: "/ourservice/serviceoffered" },
         { label: "Therapies offered", href: "/ourservice/therapies" },
@@ -45,9 +45,11 @@ export default function Navbar() {
       name: "About",
       href: "",
       dropdown: [
-        { label: "Our journey ", href: "/aboutUs" },
+                { label: "Clinic ", href: "/aboutUs/Clinic" },
         { label: "patients review ", href: "/aboutUs/patient-reviews" },
-        { label: "Our core values", href: "/aboutUs/team" },
+        { label: "Our location", href: "/aboutUs/Our-Locations" },
+        { label: "FAQ", href: "/aboutUs/Faq" },
+        { label: "Map ", href: "/aboutUs/Our-Locations/Map" },
       ],
     },
     {
