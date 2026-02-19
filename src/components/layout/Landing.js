@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Button from "../ui/Button";
 import { useEffect, useRef } from "react";
 import { albraBold } from "@/app/fonts";
 import { useLandingPage } from "@/context/LandingPageContext";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Landing() {
   const { setIsLandingPage } = useLandingPage();
   const heroRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,11 +20,48 @@ export default function Landing() {
     heroRef.current && observer.observe(heroRef.current);
     return () => heroRef.current && observer.unobserve(heroRef.current);
   }, [setIsLandingPage]);
+  const fadeUp = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 1, ease: "easeOut" },
+    },
+  };
 
   return (
     <>
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MedicalBusiness",
+              name: "NBM Rhythm Physiotherapy",
+              image: "https://nbmrhythm.com/hero.png",
+              telephone: "+919600104848",
+              email: "helpdesk@nbmrhythm.com",
+              url: "https://nbmrhythm.com",
+              sameAs: [
+                "https://www.instagram.com/nbmrhythm/",
+                "https://www.facebook.com/Nbmrhythm/",
+              ],
+            }),
+          }}
+        />
+      </>
       <section
         ref={heroRef}
+        aria-label="Physiotherapy Hero Section"
         className="relative md:min-h-screen bg-hero-gradient overflow-hidden"
       >
         {/* ========================== */}
@@ -34,8 +72,14 @@ export default function Landing() {
           {/* LEFT CONTENT */}
           <div className="flex flex-col pl-[8.33vw] h-full">
             <div className="relative">
-              <div className="absolute top-[clamp(180px,25vh,320px)]">
-                <div className="flex flex-col h-full">
+              <div className="absolute top-[clamp(180px,25vh,320px)] [@media(max-height:850px)]:top-[clamp(180px,0vh,320px)]
+">
+                <motion.div
+                  variants={fadeUp}
+                  initial="hidden"
+                  animate="visible"
+                  className="flex flex-col h-full"
+                >
                   <div className="w-full">
                     <h1
                       className={`${albraBold.className} text-[#FFFFFF] leading-[1.5] tracking-[0]`}
@@ -56,7 +100,10 @@ export default function Landing() {
                     </h2>
                   </div>
 
-                  <div className="flex flex-col gap-y-4 mt-[clamp(40px,7vh,90px)]">
+                  <motion.div
+                    variants={fadeIn}
+                    className="flex flex-col gap-y-4 mt-[clamp(40px,7vh,90px)]"
+                  >
                     <div className="flex flex-row gap-20">
                       <div className="flex items-center gap-2">
                         <Image
@@ -93,7 +140,7 @@ export default function Landing() {
                         40k + Trusted patients
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
 
                   <div className="mt-[clamp(40px,7vh,90px)] flex flex-row gap-5">
                     <a
@@ -125,14 +172,19 @@ export default function Landing() {
                       <span>contact us</span>
                     </a>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
 
           {/* RIGHT SIDE */}
           <div className="w-full relative h-screen">
-            <div className="flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="flex items-center justify-center"
+            >
               <Image
                 src="/hero.png"
                 alt="hero"
@@ -164,7 +216,6 @@ export default function Landing() {
                         : 9600104848
                       </a>
                     </div>
-                    
 
                     <div className="flex items-center gap-2">
                       <Image
@@ -223,7 +274,7 @@ export default function Landing() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -232,21 +283,27 @@ export default function Landing() {
         {/* ========================== */}
 
         <div className="lg:hidden px-4 pt-24 ">
-          <h1 className={`${albraBold.className} text-white leading-[1.2]`}>
-            <span className="block text-[clamp(30px,4vw,52px)]">
-              Physiotherapy that restores
-            </span>
-            <span className="block text-[32px]">Strength & Mobility</span>
-          </h1>
+          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+            <h1 className={`${albraBold.className} text-white leading-[1.2]`}>
+              <span className="block text-[clamp(30px,4vw,52px)]">
+                Physiotherapy that restores
+              </span>
+              <span className="block text-[32px]">Strength & Mobility</span>
+            </h1>
 
-          <h2 className="mt-4 text-white font-semibold text-[16px] leading-6">
-            Personalized physio care to help you recover, move better, and feel
-            great
-          </h2>
-
+            <h2 className="mt-4 text-white font-semibold text-[16px] leading-6">
+              Personalized physio care to help you recover, move better, and
+              feel great
+            </h2>
+          </motion.div>
           <div className="mt-8 space-y-4">
             {/* Row 1 */}
-            <div className="flex justify-between">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              className="flex justify-between"
+            >
               <div className="flex items-center gap-2">
                 <Image
                   src="tick-circle-white.svg"
@@ -270,10 +327,15 @@ export default function Landing() {
                   10 + Years of Experience
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Row 2 */}
-            <div className="flex items-center gap-2">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              className="flex items-center gap-2"
+            >
               <Image
                 src="tick-circle-white.svg"
                 width={14}
@@ -283,10 +345,15 @@ export default function Landing() {
               <span className="text-white text-[14px]">
                 40k + Trusted patients
               </span>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="mt-8 space-y-4">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="mt-8 space-y-4"
+          >
             <a
               href="https://wa.me/919600104848?text=Hi%20I%20would%20like%20to%20book%20an%20appointment"
               target="_blank"
@@ -315,9 +382,14 @@ export default function Landing() {
               />
               contact us
             </a>
-          </div>
+          </motion.div>
 
-          <div className="relative mt-12 flex justify-center">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="relative mt-12 flex justify-center"
+          >
             <Image
               src="/hero.png"
               alt="hero"
@@ -395,9 +467,15 @@ export default function Landing() {
                 </div>
               </div>
             </>
+          </motion.div>
+        </div>
+        {/* SCROLL INDICATOR */}
+        <div className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-xs flex-col items-center gap-1">
+          <span>Scroll</span>
+          <div className="w-5 h-9 border border-white rounded-full flex justify-center">
+            <span className="w-1 h-1.5 bg-white rounded-full mt-2 animate-bounce" />
           </div>
         </div>
-
         {/* PARTICLES (DESKTOP ONLY) */}
         <div className="hidden lg:block absolute bottom-0 left-0">
           <Image

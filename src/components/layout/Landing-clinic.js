@@ -1,4 +1,6 @@
+"use client"
 import { ClinicCard } from "../ui/ClinicCard";
+import { motion } from "framer-motion";
 
 export default function LandingClinic() {
   const clinicCards = [
@@ -51,45 +53,82 @@ export default function LandingClinic() {
       ],
     },
   ];
-
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
   return (
-    <section
-      id="accessible-physiotherapy"
-      className=" mx-[clamp(16px,8vw,121px)] 
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            name: "NBM Rhythm Physiotherapy Services",
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Physiotherapy Services",
+              itemListElement: clinicCards.map((card) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "MedicalTherapy",
+                  name: card.title,
+                  description: card.description,
+                },
+              })),
+            },
+          }),
+        }}
+      />
+      <section
+        role="region"
+        id="accessible-physiotherapy"
+        className=" mx-[clamp(16px,8vw,121px)] 
   mt-[clamp(80px,8vh,100px)] 
   mb-[clamp(80px,8vh,100px)]"
-    >
-      <div className="flex items-center flex-col justify-center">
-        <h1
-          className="
+      >
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex items-center flex-col justify-center"
+        >
+          <h1
+            className="
   text-[clamp(22px,2.2vw,36px)]
   font-bold
   text-center
 "
-        >
-          <span className="text-[#014579]">{`"`}Accessible </span>
-          <span className="text-[#212529]">Physiotherapy,</span>
-          <span className="text-[#014579]"> Anytime, Anywhere{`"`}</span>
-        </h1>
-        <h2
-          className="
+          >
+            <span className="text-[#014579]">{`"`}Accessible </span>
+            <span className="text-[#212529]">Physiotherapy,</span>
+            <span className="text-[#014579]"> Anytime, Anywhere{`"`}</span>
+          </h1>
+          <h2
+            className="
   mt-[clamp(16px,2vh,24px)]
   text-[clamp(16px,1.3vw,20px)]
   text-[#757575]
   text-center
 "
-        >
-          <span>
-            Our diverse physiotherapy services cater to your unique lifestyle.
-            Choose from in-clinic sessions, home visits, or virtual
-          </span>
-          <br />
-          <span>consultations — we’re here to support you.</span>
-        </h2>
-      </div>
+          >
+            <span>
+              Our diverse physiotherapy services cater to your unique lifestyle.
+              Choose from in-clinic sessions, home visits, or virtual
+            </span>
+            <br />
+            <span>consultations — we’re here to support you.</span>
+          </h2>
+        </motion.div>
 
-      <div
-        className="
+        <motion.div
+        variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="
   mt-[clamp(32px,4vh,40px)]
   flex flex-col
   gap-[clamp(20px,2.5vw,32px)]
@@ -98,12 +137,13 @@ export default function LandingClinic() {
   lg:flex-row
   lg:justify-between
 "
-      >
-        {" "}
-        {clinicCards.map((card) => (
-          <ClinicCard key={card.id} {...card} />
-        ))}
-      </div>
-    </section>
+        >
+          {" "}
+          {clinicCards.map((card) => (
+            <ClinicCard key={card.id} {...card} />
+          ))}
+        </motion.div>
+      </section>
+    </>
   );
 }

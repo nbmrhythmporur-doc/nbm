@@ -51,12 +51,36 @@ function FooterSocials() {
 export default function Footer() {
   const footerLinks = [
     {
-      title: "Company",
+      title: "Our Service",
       links: [
-        { label: "About Us", href: "/aboutUs/Clinic" },
-        { label: "Our Team", href: "/aboutUs/Clinic" },
+         { label: "Accessible physiotherapy",  href: "/#accessible-physiotherapy", },
+        { label: "Recovery roadmap", href: "/ourservice/Recovery-road-map" },
+        { label: "Services offered", href: "/ourservice/serviceoffered" },
+        { label: "Therapies offered", href: "/ourservice/therapies" },
+        { label: "Find by symptom", href: "/ourservice/Find-by-Symptom" },
+        { label: "Find by conditions ", href: "/ourservice/Find-by-Condition" },
+        { label: "Symptom checker", href: "/services/wellness" },
       ],
     },
+    {
+      title: "Company",
+      links: [
+     { label: "Clinic ", href: "/aboutUs/Clinic" },
+        { label: "patients review ", href: "/aboutUs/patient-reviews" },
+        { label: "Our location", href: "/aboutUs/Our-Locations" },
+        { label: "FAQ", href: "/aboutUs/Faq" },
+        { label: "Map ", href: "/aboutUs/Our-Locations/Map" },
+      ],
+    },{
+      title:"Careers",
+      links:[
+        
+        { label: "Current openings ", href: "/about" },
+        { label: "Workshops", href: "/about/team" },
+        { label: "Medical camps", href: "/about/team" },
+        
+      ]
+    }
   ];
 
   return (
@@ -99,7 +123,7 @@ export default function Footer() {
                   width={14}
                   height={14}
                 />
-                +91 87678 98753
+                +91 9600104848
               </p>
               <p className="flex items-center gap-2">
                 <Image
@@ -126,7 +150,7 @@ export default function Footer() {
 
           {/* -------- LINKS (SECOND ON MOBILE, FIRST ON DESKTOP) -------- */}
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-4  w-max">
+            <div className="grid grid-cols-1 md:grid-cols-3  w-max">
               {footerLinks.map((col) => (
                 <FooterColumn
                   key={col.title}

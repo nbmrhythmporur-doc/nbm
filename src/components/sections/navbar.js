@@ -38,7 +38,7 @@ export default function Navbar() {
         { label: "Therapies offered", href: "/ourservice/therapies" },
         { label: "Find by symptom", href: "/ourservice/Find-by-Symptom" },
         { label: "Find by conditions ", href: "/ourservice/Find-by-Condition" },
-        { label: "Symptom checker", href: "/services/wellness" },
+        { label: "Symptom checker", href: "/ourservice/Symptom-checker" },
       ],
     },
     {

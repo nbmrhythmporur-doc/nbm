@@ -6,6 +6,7 @@ import ProgressBar from "@/components/symptom/ProgressBar";
 import StepLocation from "@/components/symptom/StepLocation";
 import StepSeverity from "@/components/symptom/StepSeverity";
 import StepDuration from "@/components/symptom/StepDuration";
+import SymptomResult from "@/components/symptom/SymptomResult";
 
 export default function SymptomChecker() {
   const symptomSteps = [
@@ -15,16 +16,32 @@ export default function SymptomChecker() {
       title: "Where are you experiencing pain?",
       type: "options-with-image",
       options: [
-        { label: "Neck", value: "neck", image: "/neck-pain.png" },
-        { label: "Chest", value: "chest", image: "/body/chest.png" },
-        { label: "Back Bone", value: "backbone", image: "/body/backbone.png" },
-        { label: "Back", value: "back", image: "/body/back.png" },
-        { label: "Hip", value: "hip", image: "/body/hip.png" },
-        { label: "Leg", value: "leg", image: "/body/leg.png" },
-        { label: "Spine", value: "spine", image: "/body/spine.png" },
-        { label: "Shoulder", value: "shoulder", image: "/body/shoulder.png" },
-        { label: "Thighs", value: "thighs", image: "/body/thighs.png" },
-        { label: "Other", value: "other", image: "/body/other.png" },
+        { label: "Neck", value: "neck", image: "/symptoms/neck-pain.png" },
+        { label: "Chest", value: "chest", image: "/symptoms/chest-pain.png" },
+        {
+          label: "Back Bone",
+          value: "backbone",
+          image: "/symptoms/back-bone-pain.png",
+        },
+        {
+          label: "lower Back",
+          value: "back",
+          image: "/symptoms/lower-back-pain.png",
+        },
+        { label: "Hip", value: "hip", image: "/symptoms/hip-pain.png" },
+        { label: "Leg", value: "leg", image: "/symptoms/leg-pain.png" },
+        { label: "Spine", value: "spine", image: "/symptoms/spine-pain.png" },
+        {
+          label: "Shoulder",
+          value: "shoulder",
+          image: "/symptoms/shulder-pain.png",
+        },
+        {
+          label: "Thighs",
+          value: "thighs",
+          image: "/symptoms/thighs-pain.png",
+        },
+        { label: "Other", value: "other", image: "/symptoms/other.png" },
       ],
     },
     {
@@ -58,6 +75,7 @@ export default function SymptomChecker() {
   const [formData, setFormData] = useState({});
 
   const step = symptomSteps[currentStep];
+  const isLastStep = currentStep === symptomSteps.length - 1;
 
   const handleNext = (key, value) => {
     setFormData((prev) => ({
@@ -65,40 +83,49 @@ export default function SymptomChecker() {
       [key]: value,
     }));
 
-    setCurrentStep((prev) =>
-      Math.min(prev + 1, symptomSteps.length - 1)
-    );
+    setCurrentStep((prev) => Math.min(prev + 1, symptomSteps.length - 1));
   };
 
   return (
     <section className="max-w-[64rem] mx-auto px-[1rem] py-[3rem]">
-      <h1 className="text-[2.30rem] font-bold text-center text-[#014579]">
+    { !isLastStep && <div>
+       <h1 className="text-[2.30rem] font-bold text-center text-[#014579]">
         Not Sure What you Need?
       </h1>
-
       <p className="text-center text-[1.25rem] text-[#757575] mt-[1rem] mb-[2.5rem]">
         Try our symptom checker to find the right treatment path
       </p>
+     </div>}
 
-    <div className="ms-[20%]">
+      {!isLastStep && (
+        <div className="ms-[20%]">
+          <ProgressBar steps={symptomSteps} currentStep={currentStep} />
+        </div>
+      )}
 
-      <ProgressBar steps={symptomSteps} currentStep={currentStep} />
-    </div>
+      {isLastStep && formData.duration ? (
+        <SymptomResult
+          data={formData}
+          onRestart={() => {
+            setCurrentStep(0);
+            setFormData({});
+          }}
+        />
+      ) : (
+        <div className="mt-[2.5rem] bg-white rounded-[1rem] p-[2rem] border border-solid border-[#E0E0E0]">
+          {step.type === "options-with-image" && (
+            <StepLocation step={step} onNext={handleNext} />
+          )}
 
-      <div className="mt-[2.5rem] bg-white rounded-[1rem] p-[2rem] border border-solid border-[#E0E0E0]
-">
-        {step.type === "options-with-image" && (
-          <StepLocation step={step} onNext={handleNext} />
-        )}
+          {step.type === "slider" && (
+            <StepSeverity step={step} onNext={handleNext} />
+          )}
 
-        {step.type === "slider" && (
-          <StepSeverity step={step} onNext={handleNext} />
-        )}
-
-        {step.type === "options" && (
-          <StepDuration step={step} onNext={handleNext} />
-        )}
-      </div>
+          {step.type === "options" && (
+            <StepDuration step={step} onNext={handleNext} />
+          )}
+        </div>
+      )}
     </section>
   );
 }
