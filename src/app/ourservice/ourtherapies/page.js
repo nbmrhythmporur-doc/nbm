@@ -7,7 +7,6 @@ import React from 'react'
 const page = () => {
   return (
      <Suspense fallback={null}>
-      <OurTherapiesInner />
     <div><Ourtherapies/></div>
     </Suspense>
   )

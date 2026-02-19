@@ -29,7 +29,7 @@ export default function SymptomChecker() {
           image: "/symptoms/lower-back-pain.png",
         },
         { label: "Hip", value: "hip", image: "/symptoms/hip-pain.png" },
-        { label: "Leg", value: "leg", image: "/symptoms/leg-pain.png" },
+        // { label: "Leg", value: "leg", image: "/symptoms/leg-pain.png" },
         { label: "Spine", value: "spine", image: "/symptoms/spine-pain.png" },
         {
           label: "Shoulder",
