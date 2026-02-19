@@ -1,4 +1,4 @@
-import Ourtherapies from '@/components/layout/ourtherapiescomp'
+import Ourtherapies from '@/components/layout/Ourtherapiescomp.js'
 import React from 'react'
 
 const page = () => {
