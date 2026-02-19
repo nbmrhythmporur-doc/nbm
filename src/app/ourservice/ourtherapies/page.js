@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ServiceCard from "@/components/ui/ServiceCard";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const therapies = [
   {
@@ -143,87 +144,91 @@ export default function Ourtherapies() {
   };
 
   return (
-    <section className="pt-[8rem] bg-[#F5F7FA] min-h-screen">
-      {/* Header */}
-      <div className="text-center px-4">
-        <h1 className="text-[2rem] font-bold text-[#014579]">Our therapies</h1>
-        <p className="text-[#757575] mt-2">
-          Explore all our treatment and recovery therapies
-        </p>
-      </div>
+    <Suspense fallback={null}>
+      <section className="pt-[8rem] bg-[#F5F7FA] min-h-screen">
+        {/* Header */}
+        <div className="text-center px-4">
+          <h1 className="text-[2rem] font-bold text-[#014579]">
+            Our therapies
+          </h1>
+          <p className="text-[#757575] mt-2">
+            Explore all our treatment and recovery therapies
+          </p>
+        </div>
 
-      {/* Search */}
-      <div className="mt-10 flex justify-center px-4">
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search by pain, treatment or therapy"
-          className="w-full max-w-3xl px-4 py-3 rounded-xl border border-[#E0E0E0]"
-        />
-      </div>
+        {/* Search */}
+        <div className="mt-10 flex justify-center px-4">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by pain, treatment or therapy"
+            className="w-full max-w-3xl px-4 py-3 rounded-xl border border-[#E0E0E0]"
+          />
+        </div>
 
-      {/* Cards */}
-      <div className="mt-16 px-6">
-        <div
-          className="
+        {/* Cards */}
+        <div className="mt-16 px-6">
+          <div
+            className="
           grid gap-10
           grid-cols-1
           md:grid-cols-4
         "
-        >
-          {paginatedTherapies.length > 0 ? (
-            paginatedTherapies.map((therapies) => (
-              <ServiceCard key={therapies.slug} service={therapies} />
-            ))
-          ) : (
-            <p className="col-span-full text-center text-[#757575]">
-              No therapies found
-            </p>
-          )}
-        </div>
-      </div>
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="mt-20 flex justify-center items-center gap-3 flex-wrap">
-          {/* Prev */}
-          <button
-            onClick={() => setCurrentPage((p) => p - 1)}
-            disabled={currentPage === 1}
-            className="px-4 py-2 border rounded disabled:opacity-40"
           >
-            Prev
-          </button>
-
-          {/* Numbers with dots */}
-          {getPagination(currentPage, totalPages).map((item, i) =>
-            item === "..." ? (
-              <span key={`dots-${i}`} className="px-3 py-2 text-[#757575]">
-                …
-              </span>
+            {paginatedTherapies.length > 0 ? (
+              paginatedTherapies.map((therapies) => (
+                <ServiceCard key={therapies.slug} service={therapies} />
+              ))
             ) : (
-              <button
-                key={item}
-                onClick={() => setCurrentPage(item)}
-                className={`px-4 py-2 rounded border ${
-                  currentPage === item ? "bg-[#014579] text-white" : ""
-                }`}
-              >
-                {item}
-              </button>
-            ),
-          )}
-
-          {/* Next */}
-          <button
-            onClick={() => setCurrentPage((p) => p + 1)}
-            disabled={currentPage === totalPages}
-            className="px-4 py-2 border rounded disabled:opacity-40"
-          >
-            Next
-          </button>
+              <p className="col-span-full text-center text-[#757575]">
+                No therapies found
+              </p>
+            )}
+          </div>
         </div>
-      )}
-    </section>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-20 flex justify-center items-center gap-3 flex-wrap">
+            {/* Prev */}
+            <button
+              onClick={() => setCurrentPage((p) => p - 1)}
+              disabled={currentPage === 1}
+              className="px-4 py-2 border rounded disabled:opacity-40"
+            >
+              Prev
+            </button>
+
+            {/* Numbers with dots */}
+            {getPagination(currentPage, totalPages).map((item, i) =>
+              item === "..." ? (
+                <span key={`dots-${i}`} className="px-3 py-2 text-[#757575]">
+                  …
+                </span>
+              ) : (
+                <button
+                  key={item}
+                  onClick={() => setCurrentPage(item)}
+                  className={`px-4 py-2 rounded border ${
+                    currentPage === item ? "bg-[#014579] text-white" : ""
+                  }`}
+                >
+                  {item}
+                </button>
+              ),
+            )}
+
+            {/* Next */}
+            <button
+              onClick={() => setCurrentPage((p) => p + 1)}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 border rounded disabled:opacity-40"
+            >
+              Next
+            </button>
+          </div>
+        )}
+      </section>
+    </Suspense>
   );
 }
