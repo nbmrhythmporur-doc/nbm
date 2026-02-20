@@ -50,7 +50,7 @@ export function ClinicCard({
 
       {/* CONTENT */}
       <div className="flex flex-col ps-[28px] py-6 flex-1 overflow-hidden">
-        <h2 className="text-[22px] mb-4 font-bold text-[#014579]">{title}</h2>
+        <h3 className="text-[22px] mb-4 font-bold text-[#014579]">{title}</h3>
 
         <p className="text-[16px] text-[#424242] pe-6 leading-[24px] mb-6">
           {description}
