@@ -38,7 +38,7 @@ export default function PatientReviewsPage() {
       id: 4,
       name: "Suresh K",
       location: "Coimbatore",
-      image: "/patient.png",
+      image: "/review/patient.png",
       review:
         "Professional staff and modern therapy methods. My knee pain has reduced significantly.",
     },
