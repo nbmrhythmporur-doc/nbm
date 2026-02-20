@@ -1,7 +1,7 @@
 // app/sitemap.js
 
 export default function sitemap() {
-  const baseUrl = "https://www.nbmrhythm.com/"; // TODO: Change to your actual domain
+  const baseUrl = "https://www.nbmrhythm.com/"; 
 
   return [
     {
