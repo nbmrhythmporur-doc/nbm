@@ -33,11 +33,11 @@ export default function Navbar() {
       href: "",
       dropdown: [
         { label: "Accessible physiotherapy",  href: "/#accessible-physiotherapy", },
-        { label: "Recovery roadmap", href: "/ourservice/Recovery-road-map" },
-        { label: "Services offered", href: "/ourservice/serviceoffered" },
-        { label: "Therapies offered", href: "/ourservice/therapies" },
-        { label: "Find by symptom", href: "/ourservice/Find-by-Symptom" },
-        { label: "Find by conditions ", href: "/ourservice/Find-by-Condition" },
+        { label: "Recovery roadmap", href: "/#recoveryroadmap" },
+        { label: "Services offered", href: "/#serviceofferedpage" },
+        { label: "Therapies offered", href: "/#therapiesoffered" },
+        { label: "Find by symptom", href: "/#findbysymptompage" },
+        { label: "Find by conditions ", href: "/#findbyconditionspage" },
         { label: "Symptom checker", href: "/ourservice/Symptom-checker" },
       ],
     },
@@ -46,10 +46,10 @@ export default function Navbar() {
       href: "",
       dropdown: [
                 { label: "Clinic ", href: "/aboutUs/Clinic" },
-        { label: "patients review ", href: "/aboutUs/patient-reviews" },
-        { label: "Our location", href: "/aboutUs/Our-Locations" },
-        { label: "FAQ", href: "/aboutUs/Faq" },
-        { label: "Map ", href: "/aboutUs/Our-Locations/Map" },
+        { label: "patients review ", href: "/#patientsreviewpage" },
+        { label: "Our location", href: "/#ourlocationspage" },
+        { label: "FAQ", href: "/#faqpage" },
+        { label: "Map ", href: "/#mappage" },
       ],
     },
     {
@@ -79,7 +79,7 @@ export default function Navbar() {
         >
           <div className="mx-auto">
             <div
-              className={`grid h-[6.25vh] 
+              className={`grid 
               ${isLandingPage ? "grid-cols-[2fr_1fr]" : "grid-cols-[3fr_2fr]"}`}
             >
               {/* LEFT */}
@@ -99,8 +99,8 @@ export default function Navbar() {
                 </Link>
 
                 <ul
-                  className={`flex py-5 items-center ${
-                    isLandingPage ? "mb-3" : ""
+                  className={`flex items-center ${
+                    isLandingPage ? "mb-3" : "py-5"
                   } z-50 text-white font-medium `}
                 >
                   {menuItems.map((item) => (
@@ -256,7 +256,7 @@ transition-all duration-200 ease-in-out  ${
                       height={22}
                     />
                   </span>
-                  <span>Book Appointment</span>
+                  <span className="ms-3">Book Appointment</span>
                 </a>
               </div>
             </div>

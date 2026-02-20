@@ -26,25 +26,25 @@ export default function ClinicPAge() {
       name: "Dr. Mageshwari",
       role: "Lead Physiotherapist",
       degree: "BPT., COMPT, PT",
-      image: "/team/doctor-1.png",
+      image: "/team/placeholder-men.jpg",
     },
     {
       name: "Dr. Yamuna",
       role: "Senior Physiotherapist",
       degree: "BPT., COMPT, PT",
-      image: "/team/doctor-2.png",
+      image:"/team/placeholder-men.jpg",
     },
     {
       name: "Dr. Swetha",
       role: "Physiotherapist",
       degree: "BPT., COMPT, PT",
-      image: "/team/doctor-3.png",
+      image:"/team/placeholder-men.jpg",
     },
     {
       name: "Dr. Jason",
       role: "Physiotherapist",
       degree: "BPT., COMPT, PT",
-      image: "/team/doctor-4.png",
+      image: "/team/placeholder-men.jpg",
     },
   ];
   return (

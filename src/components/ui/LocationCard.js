@@ -33,9 +33,9 @@ relative h-[52%]        "
           className="w-full h-full object-cover rounded-t-[1rem]"
         />
         <div className="absolute bottom-[10%] ms-[1rem]">
-          <h2 className="text-[0.7rem] sm:text-[1.75rem] md:text-[1.2rem] lg:text-[2rem] xl:text-[1.2rem] 2k:text-[2.5rem] text-[#FFFFFF] font-extrabold">
+          <h3 className="text-[0.7rem] sm:text-[1.75rem] md:text-[1.2rem] lg:text-[2rem] xl:text-[1.2rem] 2k:text-[2.5rem] text-[#FFFFFF] font-black">
             {location.name}
-          </h2>
+          </h3>
         </div>
         <div className="absolute top-0 left-0 m-[1rem] bg-white px-3 py-1 rounded-full flex items-center gap-1 shadow">
           <span className="text-yellow-500 font-bold">★</span>

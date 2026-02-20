@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ServiceCard({ service }) {
   return (
-    <div className="w-full max-w-[21.5rem] h-[475px] bg-white rounded-2xl shadow-[0px_0.5px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden flex flex-col">
+    <div className="w-full max-w-[21.5rem] h-[475px] bg-white rounded-2xl shadow-[0px_0.5px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden gap-y-2 flex flex-col">
       {/* Image */}
       <div className="relative">
         <Image
@@ -20,15 +20,15 @@ export default function ServiceCard({ service }) {
 
       {/* Content */}
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-[#014579] font-semibold text-[clamp(14px,1vw,16px)]">
+        <h1 className="text-[#014579] mt-5 font-semibold text-[clamp(14px,1vw,16px)]">
           {service.title}
-        </h3>
+        </h1>
 
         <p className="text-[#1A7623] text-[clamp(11px,0.8vw,12px)] mt-1">
           Goal: {service.goal}
         </p>
 
-        <p className="text-[#616161] text-[clamp(13px,0.9vw,14px)] mt-2">
+        <p className="text-[#616161] text-[clamp(14px,0.9vw,14px)] mt-2 leading-6">
           {service.description}
         </p>
 

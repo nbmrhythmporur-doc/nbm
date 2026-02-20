@@ -9,6 +9,7 @@ export default function Faq() {
   lg:mx-[6rem]
   xl:mx-[7.5rem]
   2k:mx-[9rem]"
+  id="faqpage"
     >
       <FaqAccordion />
     </main>

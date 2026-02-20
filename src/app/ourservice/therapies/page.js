@@ -90,42 +90,52 @@ export default function TherapiesOffered() {
     );
   });
 
-  const visibleTherapies  = isSearching ? filteredtherapies : therapies.slice(0, 4);
+  const visibleTherapies = isSearching
+    ? filteredtherapies
+    : therapies.slice(0, 4);
 
   return (
-    <section className="pt-[8rem] bg-[#F5F7FA] min-h-screen">
+    <section
+      className="pt-[4rem] bg-[#F5F7FA] min-h-screen"
+      id="therapiesoffered"
+    >
       {/* Header */}
       <div className="text-center px-4">
         <h1 className="text-[2rem] font-bold text-[#014579]">
           Therapies Offered
         </h1>
-        <p className="text-[#757575] mt-2 text-sm md:text-base">
+        <h2 className="text-[#757575] mt-2 text-sm md:text-base">
           Comprehensive care tailored to your needs delivered by experienced
           professionals using evidence based treatments
-        </p>
+        </h2>
       </div>
 
       {/* Search */}
-      <div className="mt-12 flex flex-col items-center gap-4 px-4">
-        <div className="flex w-full max-w-3xl gap-3">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by pain or treatment or therapies"
-            className="flex-1 px-4 py-3 rounded-xl border border-[#E0E0E0] outline-none"
-          />
+      <div className="my-12 flex flex-col mx-[10vw] items-center gap-4 px-4">
+        <div className="flex w-full items-center justify-between">
+          <div className="w-full max-w-3xl">
+            {" "}
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by pain or treatment or therapies"
+              className="flex-1 px-4 py-3 w-full max-w-3xl  rounded-xl border border-[#E0E0E0] outline-none"
+            />
+          </div>
 
-          <Link
-            href="/ourservice/therapies"
-            className="hidden md:flex items-center px-6 py-3 rounded-xl border border-[#E0E0E0] text-sm"
-          >
-            View all therapies
-          </Link>
+          <div className="">
+            <Link
+              href="/ourservice/ourtherapies"
+              className="hidden md:flex  items-center px-6 py-3 rounded-xl border border-[#E0E0E0] text-sm"
+            >
+              View all therapies
+            </Link>
+          </div>
         </div>
 
         {/* Filter Chips */}
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex mt-10 flex-wrap gap-3 justify-center">
           {quickFilters.map((item) => (
             <button
               key={item}

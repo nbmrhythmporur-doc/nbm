@@ -97,7 +97,7 @@ export default function SymptomChecker() {
       </p>
      </div>}
 
-      {!isLastStep && (
+      {(!formData.duration) && (
         <div className="ms-[20%]">
           <ProgressBar steps={symptomSteps} currentStep={currentStep} />
         </div>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ConditionCard from "../ui/Conditioncard";
 
 export default function FindbyCondition() {
@@ -66,7 +65,7 @@ export default function FindbyCondition() {
   ];
 
   return (
-    <section className="mx-[1rem] md:mx-[7rem] mb-[6rem]">
+    <section className="mx-[1rem]  md:mx-[7rem] mb-[6rem]" id="findbyconditionspage">
       <div className="flex flex-col justify-center items-center">
         <div>
           <h1 className="text-[2.25rem] font-bold text-[#014579]">
@@ -74,7 +73,7 @@ export default function FindbyCondition() {
           </h1>
         </div>
         <div className="text-[#757575] mt-[1rem] text-center text-[1.25rem] mb-[2.5rem] ">
-          <p>Browse treatments by medical condition category</p>
+          <h2>Browse treatments by medical condition category</h2>
         </div>
       </div>
       <div

@@ -22,6 +22,13 @@ export default function SymptomResult({ data, onRestart }) {
         return "";
     }
   };
+const whatsappMessage = encodeURIComponent(
+  `Hi, I would like to schedule an assessment.\n\n` +
+  `Pain Location: ${formatLocation(data.location)}\n` +
+  `Pain Level: ${data.severity}/10\n` +
+  `Pain Duration: ${formatDuration(data.duration)}`
+);
+const whatsappLink = `https://wa.me/919600104848?text=${whatsappMessage}`;
 
   return (
     <section className="w-full min-h-screen bg-[#F9FAFB] flex flex-col items-center px-4 py-12">
@@ -83,7 +90,7 @@ export default function SymptomResult({ data, onRestart }) {
         {/* BUTTONS */}
         <div className="flex flex-col md:flex-row gap-4 mt-10">
           <a
-            href="https://wa.me/919600104848?text=Hi I would like to schedule an assessment"
+            href={whatsappLink}
             target="_blank"
             className="flex-1 bg-[#2F9E44] text-white text-center py-4 rounded-[12px] font-semibold hover:opacity-90 transition"
           >

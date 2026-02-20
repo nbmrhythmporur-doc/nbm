@@ -50,7 +50,10 @@ export default function StepLocation({ step, onNext }) {
 
       {/* CONTINUE */}
       <button
-        onClick={() => onNext(step.key, selected.value)}
+        onClick={() => {
+          onNext(step.key, selected.value)
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        }}
         className="mt-[2rem] w-full bg-[#014579] text-white py-[0.75rem] rounded-[0.5rem] text-[1rem] font-medium"
       >
         Continue

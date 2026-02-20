@@ -4,7 +4,7 @@ export function RecoveryCenter() {
   return (
     <div className="flex flex-col items-center text-center ">
       <Image
-        src="/recovery.svg"
+        src="/Recovery.svg"
         alt="Recovery"
         width={210}
         height={250}

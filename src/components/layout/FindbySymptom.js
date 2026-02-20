@@ -72,7 +72,7 @@ export default function FindbySymptom() {
     },
     {
       id: 4,
-      icon: "/heartBeat.svg",
+      icon: "/Lightning.svg",
       title: "Knee Pain",
       subtitle: "explore treatment",
       modal: {
@@ -110,7 +110,7 @@ export default function FindbySymptom() {
     },
     {
       id: 6,
-      icon: "/heartBeat.svg",
+      icon: "/Lightning.svg",
       title: "Sciatica",
       subtitle: "explore treatment",
       modal: {
@@ -130,7 +130,7 @@ export default function FindbySymptom() {
   ];
 
   return (
-    <section className="bg-[#F5F7FA]">
+    <section className="bg-[#F5F7FA]" id="findbysymptompage">
       {/* HERO */}
       <div className="bg-hero-gradient py-[8%] flex flex-col items-center justify-center">
         <h1 className="text-[2rem] md:text-[3rem] text-white text-center font-bold mb-2">

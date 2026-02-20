@@ -39,7 +39,7 @@ export default function StepSeverity({ step, onNext }) {
 
       <button
         onClick={() => onNext(step.key, value)}
-        className="mt-[2.5rem] w-[49.5rem] border border-[#014579] text-[#014579] py-[0.75rem] rounded-[0.5rem] bg-[#014579] text-white transition"
+        className="mt-[2.5rem] w-full border border-[#014579] text-[#014579] py-[0.75rem] rounded-[0.5rem] bg-[#014579] text-white transition"
       >
         Continue
       </button>

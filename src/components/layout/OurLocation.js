@@ -51,7 +51,7 @@ export default function OurLocation() {
   ];
   return (
     <section
-      className="ms-[clamp(16px,5vw,120px)] pt-20"
+      className="ms-[clamp(16px,5vw,120px)]" id="ourlocationspage"
     >
       <div className="flex flex-col items-center justify-center mx-[2.5rem] md:mx-[0%] text-center">
         <div>
@@ -59,7 +59,7 @@ export default function OurLocation() {
             Our Locations
           </h1>
         </div>
-        <div className="mb-[3rem]">
+        <div>
           <p
             className="text-[#757575] text-[0.875rem]  /* default base size */
    sm:text-[1rem]          /* small screens */

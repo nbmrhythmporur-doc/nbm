@@ -14,7 +14,7 @@ export default function PatientReviewsPage() {
       id: 1,
       name: "Meenakshi R",
       location: "Chennai",
-      image: "/patient.png",
+      image: "/review/patient.png",
       review:
         "The team helped me recover faster than expected. The physiotherapists were extremely supportive and professional.",
     },
@@ -22,7 +22,7 @@ export default function PatientReviewsPage() {
       id: 2,
       name: "Raj Verma",
       location: "Vellore",
-      image: "/patient.png",
+      image: "/review/review-avatar-2.png",
       review:
         "Finally found relief from chronic back pain. The treatment plan was structured and effective.",
     },
@@ -30,7 +30,7 @@ export default function PatientReviewsPage() {
       id: 3,
       name: "Annie D",
       location: "Bangalore",
-      image: "/patient.png",
+      image: "/review/patient-review-3.png",
       review:
         "Excellent patient care and post-surgery rehabilitation. I feel stronger and more confident.",
     },
@@ -105,12 +105,13 @@ export default function PatientReviewsPage() {
 
   return (
     <section
-      className="relative w-full min-h-screen flex flex-col justify-center"
+      className="relative w-full  flex flex-col "
       style={{
         backgroundImage: "url('/review-backgorund.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      id="patientsreviewpage"
     >
       {/* Overlay */}
 

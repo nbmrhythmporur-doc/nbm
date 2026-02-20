@@ -54,9 +54,9 @@ export default function FaqAccordion() {
     <section className="w-full bg-[#f7f9fb] py-16">
       <div className="max-w-5xl mx-auto px-4">
         {/* Heading */}
-        <h2 className="text-center text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2rem] 2k:text-[2.5rem] font-bold text-[#014579] mb-10">
+        <h1 className="text-center text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2rem] 2k:text-[2.5rem] font-bold text-[#014579] mb-10">
           FAQ:
-        </h2>
+        </h1>
 
         <p
           className="font-semibold text-[#014579] text-[0.875rem]  /* default base size */

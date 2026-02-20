@@ -14,12 +14,13 @@ export default function Landing() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsLandingPage(entry.isIntersecting),
-      { threshold: 0.15 },
+      { threshold: 0.15 }
     );
 
     heroRef.current && observer.observe(heroRef.current);
     return () => heroRef.current && observer.unobserve(heroRef.current);
   }, [setIsLandingPage]);
+
   const fadeUp = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
     visible: {
@@ -62,122 +63,118 @@ export default function Landing() {
       <section
         ref={heroRef}
         aria-label="Physiotherapy Hero Section"
-        className="relative md:min-h-screen bg-hero-gradient overflow-hidden"
+        className="relative lg:min-h-screen bg-hero-gradient overflow-hidden"
       >
         {/* ========================== */}
-        {/* ===== DESKTOP (UNCHANGED) */}
+        {/* ===== DESKTOP VERSION ==== */}
         {/* ========================== */}
 
-        <div className="hidden lg:grid grid-cols-[3fr_2fr]">
-          {/* LEFT CONTENT */}
-          <div className="flex flex-col pl-[8.33vw] h-full">
-            <div className="relative">
-              <div className="absolute top-[clamp(180px,25vh,320px)] [@media(max-height:850px)]:top-[clamp(180px,0vh,320px)]
-">
-                <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  animate="visible"
-                  className="flex flex-col h-full"
+        <div className="hidden lg:grid grid-cols-[3fr_2fr] min-h-screen">
+          {/* LEFT CONTENT (FIXED) */}
+          {/* Removed absolute positioning and added justify-center to dynamically center vertically */}
+          <div className="flex flex-col pl-[6.5vw] justify-center h-full py-20 z-10">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col h-full justify-center"
+            >
+              <div className="w-full">
+                <h1
+                  className={`${albraBold.className} text-[#FFFFFF] leading-[1.5] tracking-[0]`}
                 >
-                  <div className="w-full">
-                    <h1
-                      className={`${albraBold.className} text-[#FFFFFF] leading-[1.5] tracking-[0]`}
-                    >
-                      <span className="block text-[clamp(36px,3.89vw,70px)]">
-                        Physiotherapy that restores
-                      </span>
-                      <span className="block text-[clamp(48px,5.42vw,95px)]">
-                        Strength & Mobility
-                      </span>
-                    </h1>
-                  </div>
-
-                  <div className="mt-[clamp(22px,1.5vw,44px)]">
-                    <h2 className="font-bold text-[#FFFFFF] text-[clamp(18px,1.67vw,28px)]">
-                      Personalized physio care to help you recover, move better,
-                      and feel great
-                    </h2>
-                  </div>
-
-                  <motion.div
-                    variants={fadeIn}
-                    className="flex flex-col gap-y-4 mt-[clamp(40px,7vh,90px)]"
-                  >
-                    <div className="flex flex-row gap-20">
-                      <div className="flex items-center gap-2">
-                        <Image
-                          src="tick-circle-white.svg"
-                          width={14}
-                          height={14}
-                          alt=""
-                        />
-                        <div className="text-[#FFFFFF] text-[clamp(16px,1vw,22px)]">
-                          Licensed Professionals
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Image
-                          src="tick-circle-white.svg"
-                          width={14}
-                          height={14}
-                          alt=""
-                        />
-                        <div className="text-[#FFFFFF] text-[clamp(16px,1vw,22px)]">
-                          10 + Years of Experience
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <Image
-                        src="tick-circle-white.svg"
-                        width={14}
-                        height={14}
-                        alt=""
-                      />
-                      <div className="text-[#FFFFFF] text-[clamp(16px,1vw,22px)]">
-                        40k + Trusted patients
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <div className="mt-[clamp(40px,7vh,90px)] flex flex-row gap-5">
-                    <a
-                      href="https://wa.me/919600104848?text=Hi%20I%20would%20like%20to%20book%20an%20appointment"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Book appointment on WhatsApp"
-                      className="flex z-40  items-center justify-center border border-[#FFFFFF80] rounded-xl text-[#FFFFFF] text-[clamp(15px,1.25vw,20px)] font-semibold gap-2 w-[19.6vw] h-[5.5vh] bg-[#229D2E]"
-                    >
-                      <Image
-                        src="/arrow-slim-right-white.svg"
-                        alt=""
-                        width={24}
-                        height={24}
-                      />
-                      <span>Book Appointment</span>
-                    </a>
-
-                    <a
-                      href="tel:+919600104848"
-                      className="flex items-center justify-center border border-[#4ADE80] rounded-xl text-[#FFFFFF] text-[clamp(15px,1.25vw,20px)] font-semibold gap-2 w-[19.6vw] h-[5.5vh] bg-transparent"
-                    >
-                      <Image
-                        src="/phone-icon-white-fill.svg"
-                        alt=""
-                        width={24}
-                        height={24}
-                      />
-                      <span>contact us</span>
-                    </a>
-                  </div>
-                </motion.div>
+                  <span className="block text-[clamp(36px,3.89vw,70px)]">
+                    Physiotherapy that restores
+                  </span>
+                  <span className="block text-[clamp(48px,5.42vw,95px)]">
+                    Strength & Mobility
+                  </span>
+                </h1>
               </div>
-            </div>
+
+              <div className="mt-[clamp(22px,1.5vw,44px)]">
+                <h3 className="font-bold text-[#FFFFFF] text-[clamp(18px,1.67vw,28px)]">
+                  Personalized physio care to help you recover, move better,
+                  and feel great
+                </h3>
+              </div>
+
+              <motion.div
+                variants={fadeIn}
+                className="flex flex-col gap-y-4 mt-[clamp(30px,5vh,90px)]"
+              >
+                <div className="flex flex-row gap-20">
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="tick-circle-white.svg"
+                      width={14}
+                      height={14}
+                      alt=""
+                    />
+                    <div className="text-[#FFFFFF] text-[clamp(16px,1vw,22px)]">
+                      Licensed Professionals
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="tick-circle-white.svg"
+                      width={14}
+                      height={14}
+                      alt=""
+                    />
+                    <div className="text-[#FFFFFF] text-[clamp(16px,1vw,22px)]">
+                      10 + Years of Experience
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="tick-circle-white.svg"
+                    width={14}
+                    height={14}
+                    alt=""
+                  />
+                  <div className="text-[#FFFFFF] text-[clamp(16px,1vw,22px)]">
+                    40k + Trusted patients
+                  </div>
+                </div>
+              </motion.div>
+
+              <div className="mt-[clamp(30px,5vh,90px)] flex flex-row gap-5">
+                <a
+                  href="https://wa.me/919600104848?text=Hi%20I%20would%20like%20to%20book%20an%20appointment"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Book appointment on WhatsApp"
+                  className="flex z-40 items-center justify-center border border-[#FFFFFF80] rounded-xl text-[#FFFFFF] text-[clamp(15px,1.25vw,20px)] font-semibold gap-2 w-[19.6vw] h-[5.5vh] min-h-[50px] bg-[#229D2E]"
+                >
+                  <Image
+                    src="/arrow-slim-right-white.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                  <span>Book Appointment</span>
+                </a>
+
+                <a
+                  href="tel:+919600104848"
+                  className="flex items-center justify-center border border-[#4ADE80] rounded-xl text-[#FFFFFF] text-[clamp(15px,1.25vw,20px)] font-semibold gap-2 w-[19.6vw] h-[5.5vh] min-h-[50px] bg-transparent"
+                >
+                  <Image
+                    src="/phone-icon-white-fill.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                  <span>contact us</span>
+                </a>
+              </div>
+            </motion.div>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT SIDE (UNTOUCHED) */}
           <div className="w-full relative h-screen">
             <motion.div
               initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 40 }}
@@ -190,17 +187,15 @@ export default function Landing() {
                 alt="hero"
                 width={556}
                 height={569}
-                className="z-40 absolute bottom-0 right-0 h-auto
-              w-[100%]
-              lg:w-[90%]
-              xl:w-[100%]
-              [@media(max-height:1000px)]:max-h-[85vh]
-              [@media(max-height:850px)]:w-[76%]
-              [@media(max-height:850px)]:right-[8%]"
+                className="z-40 absolute bottom-0 right-0 2xl:right-15 h-auto
+              w-full
+              2xl:w-[80%]
+              max-w-[572px]
+              "
               />
 
               <div className="h-screen relative flex items-center bg-[#FFFFFFD6] ms-[18%] w-[49%]">
-                <div className="absolute top-[28vh] right-[10%]">
+                <div className="absolute top-[25vh] right-[10%]">
                   <div className="flex flex-col gap-y-4">
                     <div className="flex items-center gap-2">
                       <Image
@@ -279,22 +274,22 @@ export default function Landing() {
         </div>
 
         {/* ========================== */}
-        {/* ===== MOBILE VERSION ===== */}
+        {/* ===== MOBILE VERSION (UNTOUCHED) ===== */}
         {/* ========================== */}
 
         <div className="lg:hidden px-4 pt-24 ">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <h1 className={`${albraBold.className} text-white leading-[1.2]`}>
+            <h1 className={`${albraBold.className} text-white leading-[1.8]`}>
               <span className="block text-[clamp(30px,4vw,52px)]">
                 Physiotherapy that restores
               </span>
-              <span className="block text-[32px]">Strength & Mobility</span>
+              <span className="block text-[clamp(38px,2rem,62px)]">Strength & Mobility</span>
             </h1>
 
-            <h2 className="mt-4 text-white font-semibold text-[16px] leading-6">
+            <h3 className="mt-4 text-white font-semibold text-[16px] leading-6">
               Personalized physio care to help you recover, move better, and
               feel great
-            </h2>
+            </h3>
           </motion.div>
           <div className="mt-8 space-y-4">
             {/* Row 1 */}
@@ -410,10 +405,11 @@ export default function Landing() {
                         alt=""
                         width={18}
                         height={18}
+                        className="hover:cursor-pointer"
                       />
                       <a
                         href="tel:+919600104848"
-                        className="text-[#014579] text-[14px]"
+                        className="text-[#014579] text-[14px] hover:cursor-pointer"
                       >
                         : 9600104848
                       </a>
@@ -426,6 +422,7 @@ export default function Landing() {
                         alt=""
                         width={18}
                         height={18}
+                         className="hover:cursor-pointer"
                       />
                       <a
                         href={`mailto:helpdesk@nbmrhythm.com

@@ -1,7 +1,7 @@
 import { StepCard } from "../ui/StepCard";
 import { RecoveryCenter } from "../ui/RecoveryCenter";
 import Image from "next/image";
-
+import Link from "next/link";
 const steps = [
   {
     id: 1,
@@ -31,11 +31,11 @@ const steps = [
 
 export default function Threesteps() {
   return (
-    <section className="w-full bg-[#F7F9FB] py-[100px]">
+    <section className="w-full bg-[#F7F9FB] py-[100px] " id="recoveryroadmap">
       {/* TITLE */}
-      <h2 className="mx-[34px] text-[24px] md:text-[32px] font-bold text-center text-[#014579] mb-[80px]">
+      <h1 className="mx-[34px] text-[24px] md:text-[32px] font-bold text-center text-[#014579] mb-[80px]">
         Three Simple Steps to better health
-      </h2>
+      </h1>
 
       {/* DESKTOP */}
       <div className="hidden lg:grid max-w-[1200px] mx-auto grid-cols-3 grid-rows-2 relative gap-y-[80px]">
@@ -88,9 +88,9 @@ export default function Threesteps() {
 
       {/* CTA */}
       <div className="mt-[80px] flex justify-center">
-        <button className="px-6 py-3 border border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-50 transition">
+        <Link href={"/ourservice/Symptom-checker"}  className="px-6 py-3 border border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-50 transition">
           Begin your assessment
-        </button>
+        </Link>
       </div>
     </section>
   );
